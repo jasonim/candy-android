@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
-        <net.dearcode.candy.selfview.MyListView
+        <net.dearcode.candy.ui.selfview.MyListView
             android:id="@+id/lv_friends"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -16,7 +16,7 @@
             android:divider="@color/color_gray_qian"
             android:cacheColorHint="#000000">
 
-        </net.dearcode.candy.selfview.MyListView>
+        </net.dearcode.candy.ui.selfview.MyListView>
 
     </ScrollView>
 </LinearLayout>

@@ -1,11 +1,6 @@
-package net.dearcode.candy.controller.base;
+package net.dearcode.candy.ui.base;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * 所有Fragment的基类

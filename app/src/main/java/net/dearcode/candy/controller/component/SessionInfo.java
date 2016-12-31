@@ -1,6 +1,6 @@
 package net.dearcode.candy.controller.component;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.model.Session;
 import net.dearcode.candy.model.User;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class SessionInfo {
 
     public static ArrayList<Session> loadSessionList() {
-        ArrayList<Session> ss = CustomeApplication.db.loadSession();
+        ArrayList<Session> ss = MainApp.db.loadSession();
         for (int i = 0; i < ss.size(); i++) {
             Session s = ss.get(i);
             if (s.isGroup()) {

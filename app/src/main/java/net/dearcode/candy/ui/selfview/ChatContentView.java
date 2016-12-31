@@ -1,4 +1,4 @@
-package net.dearcode.candy.selfview;
+package net.dearcode.candy.ui.selfview;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.dearcode.candy.R;
-import net.dearcode.candy.modelview.MessageBean;
-import net.dearcode.candy.selfview.adapter.ChatMsgAdapter;
+import net.dearcode.candy.model.MessageBean;
+import net.dearcode.candy.ui.adapter.ChatMsgAdapter;
 import net.dearcode.candy.util.FaceUtil;
 import net.dearcode.candy.util.SoundMeter;
 

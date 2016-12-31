@@ -3,10 +3,6 @@ package net.dearcode.candy.model;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.provider.ContactsContract;
-
-import net.dearcode.candy.modelview.MessageBean;
-import net.dearcode.candy.modelview.UserBean;
 
 /**
  *  * Created by c-wind on 2016/9/30 10:59

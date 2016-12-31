@@ -1,4 +1,4 @@
-package net.dearcode.candy.selfview;
+package net.dearcode.candy.ui.selfview;
 
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;

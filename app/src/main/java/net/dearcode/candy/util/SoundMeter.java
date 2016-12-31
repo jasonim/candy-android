@@ -4,7 +4,7 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 
-import net.dearcode.candy.controller.base.BaseActivity;
+import net.dearcode.candy.ui.base.BaseActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;

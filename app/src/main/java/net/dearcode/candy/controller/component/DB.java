@@ -9,7 +9,7 @@ import net.dearcode.candy.model.ConversationListItem;
 import net.dearcode.candy.model.Message;
 import net.dearcode.candy.model.Session;
 import net.dearcode.candy.model.User;
-import net.dearcode.candy.modelview.MessageBean;
+import net.dearcode.candy.model.MessageBean;
 
 import java.util.ArrayList;
 import java.util.Collections;

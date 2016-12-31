@@ -1,25 +1,19 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.activity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseActivity;
+import net.dearcode.candy.ui.base.BaseActivity;
 import net.dearcode.candy.controller.command.BroadcastMsg;
 import net.dearcode.candy.controller.service.MessageService;
-import net.dearcode.candy.model.Message;
-import net.dearcode.candy.model.ServiceResponse;
-import net.dearcode.candy.modelview.MessageBean;
-import net.dearcode.candy.util.Common;
 
 /**
  * Created by lujinfeifly on 16/9/27.
@@ -99,8 +93,9 @@ public class LoginActivity extends BaseActivity {
             }
 
             if(m.getIret() == 0) {
-                CustomeApplication.getInstance().setLogin(true);
-                CustomeApplication.getInstance().getLocalPreferences().save("login",
+                MainApp.getInstance().setLogin(true);
+
+                MainApp.getInstance().getLocalPreferences().save("login",
                         account + "#@#" + pwd + "#@#" + m.getData());
 
                 goToCandyActivity(b);

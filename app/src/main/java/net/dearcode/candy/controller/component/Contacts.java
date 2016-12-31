@@ -2,7 +2,7 @@ package net.dearcode.candy.controller.component;
 
 import android.util.Log;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.model.FriendList;
 import net.dearcode.candy.model.ServiceResponse;
 import net.dearcode.candy.model.User;
@@ -18,14 +18,14 @@ public class Contacts {
     public static ArrayList<User> getContacts() {
         ArrayList<User> users = null;
 
-        boolean hasUser = CustomeApplication.getInstance().getLocalPreferences().getBool("friends");
+        boolean hasUser = MainApp.getInstance().getLocalPreferences().getBool("friends");
         if(hasUser) {
-            users = CustomeApplication.db.getFriends();
+            users = MainApp.db.getFriends();
         } else {
             users = new ArrayList<>();
             ServiceResponse sr = new RPC() {
                 public ServiceResponse getResponse() throws Exception {
-                    return CustomeApplication.getService().loadFriendList();
+                    return MainApp.getService().loadFriendList();
                 }
             }.Call();
             if (sr.hasError()) {
@@ -39,7 +39,7 @@ public class Contacts {
             for (final long id : list.Users) {
                 sr = new RPC() {
                     public ServiceResponse getResponse() throws Exception {
-                        return CustomeApplication.getService().loadUserInfo(id);
+                        return MainApp.getService().loadUserInfo(id);
                     }
                 }.Call();
                 if (sr.hasError()) {
@@ -49,11 +49,11 @@ public class Contacts {
                 User user = sr.getUser();
                 users.add(user);
                 // store friends
-                CustomeApplication.db.saveFriend(id);
+                MainApp.db.saveFriend(id);
                 // store details
-                CustomeApplication.db.saveUser(user.getID(), user.getName(), user.getNickName(), null);
+                MainApp.db.saveUser(user.getID(), user.getName(), user.getNickName(), null);
             }
-            CustomeApplication.getInstance().getLocalPreferences().saveBool("friends", true);
+            MainApp.getInstance().getLocalPreferences().saveBool("friends", true);
         }
 
         return users;

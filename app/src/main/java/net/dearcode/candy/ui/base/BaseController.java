@@ -1,4 +1,4 @@
-package net.dearcode.candy.controller.base;
+package net.dearcode.candy.ui.base;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

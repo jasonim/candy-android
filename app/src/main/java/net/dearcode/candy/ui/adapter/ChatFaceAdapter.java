@@ -1,4 +1,4 @@
-package net.dearcode.candy.selfview.adapter;
+package net.dearcode.candy.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;

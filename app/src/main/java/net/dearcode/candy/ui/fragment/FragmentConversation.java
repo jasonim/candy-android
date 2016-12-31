@@ -1,4 +1,4 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseFragment;
+import net.dearcode.candy.ui.base.BaseFragment;
 import net.dearcode.candy.model.ConversationListItem;
-import net.dearcode.candy.selfview.adapter.ChatListAdapter;
+import net.dearcode.candy.ui.activity.ChatActivity;
+import net.dearcode.candy.ui.adapter.ChatListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +34,7 @@ public class FragmentConversation extends BaseFragment implements
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataList = CustomeApplication.db.getChatList();
+        dataList = MainApp.db.getChatList();
     }
 
     @Nullable

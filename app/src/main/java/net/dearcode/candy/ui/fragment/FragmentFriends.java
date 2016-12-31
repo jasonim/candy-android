@@ -1,4 +1,4 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseFragment;
+import net.dearcode.candy.ui.base.BaseFragment;
 import net.dearcode.candy.controller.component.Contacts;
 import net.dearcode.candy.model.FriendListItem;
 import net.dearcode.candy.model.User;
-import net.dearcode.candy.selfview.adapter.FriendListAdpter;
+import net.dearcode.candy.ui.activity.HumanActivity;
+import net.dearcode.candy.ui.adapter.FriendListAdpter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

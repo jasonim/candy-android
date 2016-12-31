@@ -1,29 +1,26 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import com.forlong401.log.transaction.log.manager.LogManager;
+import com.meikoz.core.MainApplication;
+import com.meikoz.core.api.RestApi;
+import com.meikoz.core.manage.crash.AndroidCrash;
+import com.meikoz.core.manage.interfacee.HttpReportCallback;
 
-import net.dearcode.candy.CandyMessage;
 import net.dearcode.candy.controller.component.DB;
 import net.dearcode.candy.controller.component.ServiceBinder;
-import net.dearcode.candy.controller.component.UserInfo;
 import net.dearcode.candy.controller.service.MessageService;
 import net.dearcode.candy.localdb.localpreferences.LocalPreferences;
-import net.dearcode.candy.model.ServiceResponse;
 import net.dearcode.candy.model.User;
 
+import java.io.File;
+
 /**
- * Created by 水寒 on 2016/9/17.
- * 自定义application
+ * Created by jsson on 16/12/31.
  */
-
-public class CustomeApplication extends Application {
-
-    private static CustomeApplication mInstance;
+public class MainApp extends MainApplication {
+    private static final MainApp INSTANCE = new MainApp();
     private LocalPreferences localPreferences = null;
     private static ServiceBinder binder;
     public static DB db;
@@ -36,10 +33,6 @@ public class CustomeApplication extends Application {
         return isLogin;
     }
 
-    public CustomeApplication() {
-        mInstance = this;
-    }
-
     public LocalPreferences getLocalPreferences() {
         return localPreferences;
     }
@@ -48,8 +41,13 @@ public class CustomeApplication extends Application {
         isLogin = login;
     }
 
+
+    public static MainApp getInstance() {
+        return INSTANCE;
+    }
     @Override
     public void onCreate() {
+        RestApi.getInstance().bug(Constants.Config.DEVELOPER_MODE);
         super.onCreate();
 
         LogManager.getManager(this).registerCrashHandler();
@@ -74,6 +72,9 @@ public class CustomeApplication extends Application {
         i.putExtra("account", mMyself.getName());
         i.putExtra("passwd", mMyself.getPassword());
         this.startService(i);
+
+        configure();
+
     }
 
     public User getMyself() {
@@ -91,11 +92,14 @@ public class CustomeApplication extends Application {
         LogManager.getManager(this).unregisterCrashHandler();
     }
 
-    public Context getContext(){
-        return mInstance.getContext();
+    private void configure() {
+        HttpReportCallback callback = new HttpReportCallback() {
+            @Override
+            public void uploadException2remote(File file) {
+                // param file is exception file
+            }
+        };
+        AndroidCrash.getInstance().setCrashReporter(callback).init(this);
     }
 
-    public static CustomeApplication getInstance(){
-        return mInstance;
-    }
 }

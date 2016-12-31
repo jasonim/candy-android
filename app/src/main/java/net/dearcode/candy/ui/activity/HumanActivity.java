@@ -1,15 +1,12 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseActivity;
+import net.dearcode.candy.ui.base.BaseActivity;
 
 /**
  * Created by lujinfei on 2016/10/8.

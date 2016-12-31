@@ -1,18 +1,8 @@
-package net.dearcode.candy.selfview.adapter;
+package net.dearcode.candy.ui.adapter;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.os.Handler;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -20,17 +10,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.CustomeApplication;
-import net.dearcode.candy.controller.base.BaseActivity;
-import net.dearcode.candy.model.Message;
-import net.dearcode.candy.modelview.MessageBean;
-import net.dearcode.candy.selfview.ChatContentView;
+import net.dearcode.candy.ui.base.BaseActivity;
+import net.dearcode.candy.model.MessageBean;
+import net.dearcode.candy.ui.selfview.ChatContentView;
 import net.dearcode.candy.util.ResourceUtil;
 import net.dearcode.candy.util.SoundMeter;
 
 
-import java.io.File;
-import java.lang.reflect.Field;
 import java.util.List;
 
 import deer.milu.freejava.basic.MTime;

@@ -1,9 +1,8 @@
-package net.dearcode.candy.controller.base;
+package net.dearcode.candy.ui.base;
 
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 
 /**
  * 所有FragmentActivity的基类

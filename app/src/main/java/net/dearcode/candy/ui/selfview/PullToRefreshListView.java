@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.dearcode.candy.selfview;
+package net.dearcode.candy.ui.selfview;
 
 import android.content.Context;
 import android.util.AttributeSet;

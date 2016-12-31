@@ -1,4 +1,4 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseFragment;
+import net.dearcode.candy.ui.base.BaseFragment;
+import net.dearcode.candy.ui.activity.MainActivity;
 
 /**
  * Created by lujinfeifly on 16/9/22.

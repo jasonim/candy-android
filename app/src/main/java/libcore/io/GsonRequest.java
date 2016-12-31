@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.util.LogUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -95,7 +95,7 @@ public class GsonRequest<T> extends BaseRequst<T> {
         } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));  
         } catch (JsonSyntaxException e){
-            getManager(CustomeApplication.getInstance()).log("GSON_Error",
+            getManager(MainApp.getInstance()).log("GSON_Error",
                     "Json解析异常[ACTION=" +  mParams.get("action") + "]__返回数据：" + jsonString,
                     LogUtils.LOG_TYPE_2_FILE_AND_LOGCAT);
             return Response.error(new ParseError(e));

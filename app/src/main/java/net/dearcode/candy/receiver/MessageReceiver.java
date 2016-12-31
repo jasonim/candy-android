@@ -1,21 +1,18 @@
 package net.dearcode.candy.receiver;
 
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.controller.command.BroadcastMsg;
 import net.dearcode.candy.model.Event;
 import net.dearcode.candy.model.Message;
 import net.dearcode.candy.util.Common;
 
 import java.util.Date;
-
-import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by lujinfei on 2016/10/20.
@@ -49,7 +46,7 @@ public class MessageReceiver extends BroadcastReceiver {
 
             }else {
                 // 入库, 个人聊天
-                CustomeApplication.db.saveUserMessage(new Date().getTime(),
+                MainApp.db.saveUserMessage(new Date().getTime(),
                         m.getFrom(),
                         m.getFrom(),
                         m.getMsg());

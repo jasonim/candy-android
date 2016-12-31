@@ -1,8 +1,6 @@
-package net.dearcode.candy.controller.base;
+package net.dearcode.candy.ui.base;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;

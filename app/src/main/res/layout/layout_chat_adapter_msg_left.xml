@@ -58,7 +58,7 @@
             android:textSize="9sp"
             android:visibility="gone" />
         <!-- 消息聊天内容 -->
-        <net.dearcode.candy.selfview.ChatContentView
+        <net.dearcode.candy.ui.selfview.ChatContentView
 	        android:id="@+id/v_chat_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

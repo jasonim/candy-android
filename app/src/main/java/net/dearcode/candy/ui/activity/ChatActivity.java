@@ -1,4 +1,4 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.activity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -19,21 +19,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseActivity;
-import net.dearcode.candy.controller.component.RPC;
+import net.dearcode.candy.ui.base.BaseActivity;
 import net.dearcode.candy.controller.service.MessageService;
-import net.dearcode.candy.model.Event;
 import net.dearcode.candy.model.Message;
-import net.dearcode.candy.model.Relation;
-import net.dearcode.candy.model.ServiceResponse;
-import net.dearcode.candy.modelview.MessageBean;
-import net.dearcode.candy.modelview.UserBean;
-import net.dearcode.candy.selfview.PullToRefreshListView;
-import net.dearcode.candy.selfview.adapter.ChatFaceAdapter;
-import net.dearcode.candy.selfview.adapter.ChatMsgAdapter;
+import net.dearcode.candy.model.MessageBean;
+import net.dearcode.candy.model.UserBean;
+import net.dearcode.candy.ui.selfview.PullToRefreshListView;
+import net.dearcode.candy.ui.adapter.ChatFaceAdapter;
+import net.dearcode.candy.ui.adapter.ChatMsgAdapter;
 import net.dearcode.candy.util.BitMapCacheUtil;
 import net.dearcode.candy.util.Common;
 import net.dearcode.candy.util.FaceUtil;
@@ -247,7 +243,7 @@ public class ChatActivity extends BaseActivity {
                     //首次来，设置好页码，是否有下页等
                     if (isFirst) {
                         long historyTime = new Date().getTime();
-                        pm.setTotalCount(CustomeApplication.db.getUserMessageCount(mUid));
+                        pm.setTotalCount(MainApp.db.getUserMessageCount(mUid));
                         pm.setNowPage("1");
                         int pageSize = (int)Math.ceil((double)pm.getTotalCount()/20);
                         pm.setTotalPage(pageSize);
@@ -265,7 +261,7 @@ public class ChatActivity extends BaseActivity {
                     }
 
                     //获取数据
-                    List<Message> tmpList = CustomeApplication.db.loadUserMessage(mUid);
+                    List<Message> tmpList = MainApp.db.loadUserMessage(mUid);
                     if (tmpList == null) {
                         handler.sendEmptyMessage(3);
                         return;
@@ -372,16 +368,16 @@ public class ChatActivity extends BaseActivity {
         message.setId(new Date().getTime());
         message.setTime(new Date().getTime());
         UserBean user = new UserBean();
-        user.setUserId(CustomeApplication.getInstance().getMyself().getID());
+        user.setUserId(MainApp.getInstance().getMyself().getID());
         message.setUser(user);
 
         // 入库, 个人聊天
-        CustomeApplication.db.saveUserMessage(new Date().getTime(),
+        MainApp.db.saveUserMessage(new Date().getTime(),
                 mUid,
-                CustomeApplication.getInstance().getMyself().getID(),
+                MainApp.getInstance().getMyself().getID(),
                 msg);
         // 入库，聊天列表
-        CustomeApplication.db.saveChatList(message);
+        MainApp.db.saveChatList(message);
 
 
         //更新UI

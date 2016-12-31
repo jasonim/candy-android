@@ -1,20 +1,21 @@
-package net.dearcode.candy.controller;
+package net.dearcode.candy.ui.activity;
 
 import android.content.Intent;
-import android.os.RemoteException;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
-import net.dearcode.candy.CandyMessage;
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.R;
-import net.dearcode.candy.controller.base.BaseFragmentActivity;
+import net.dearcode.candy.localdb.localpreferences.LocalPreferences;
+import net.dearcode.candy.ui.fragment.FragmentConversation;
+import net.dearcode.candy.ui.fragment.FragmentExplore;
+import net.dearcode.candy.ui.fragment.FragmentFriends;
+import net.dearcode.candy.ui.fragment.FragmentOther;
+import net.dearcode.candy.ui.base.BaseFragmentActivity;
 
 /**
  * Created by 水寒 on 2016/9/17.
@@ -37,7 +38,7 @@ public class MainActivity extends BaseFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(!CustomeApplication.getInstance().isLogin()) {
+        if(!MainApp.getInstance().isLogin()) {
             exit();
         }
 
@@ -74,8 +75,11 @@ public class MainActivity extends BaseFragmentActivity {
 
     public void exit() {
         // 清空登录
-        CustomeApplication.getInstance().getLocalPreferences().save("login", "");
-        CustomeApplication.getInstance().setLogin(true);
+        LocalPreferences localPreferences = MainApp.getInstance().getLocalPreferences();
+        if(localPreferences != null) {
+            localPreferences.save("login", "");
+        }
+        MainApp.getInstance().setLogin(true);
         // 跳转
         Intent intent=new Intent(this,LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

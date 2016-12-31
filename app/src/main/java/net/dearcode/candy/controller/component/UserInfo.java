@@ -2,7 +2,7 @@ package net.dearcode.candy.controller.component;
 
 import android.util.Log;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import net.dearcode.candy.MainApp;
 import net.dearcode.candy.model.ServiceResponse;
 import net.dearcode.candy.model.User;
 
@@ -14,13 +14,13 @@ import net.dearcode.candy.model.User;
 public class UserInfo {
 
     public static User getUserInfo(final long id) {
-        User user = CustomeApplication.db.loadUser(id);
+        User user = MainApp.db.loadUser(id);
         if (user != null) {
             return user;
         }
         ServiceResponse sr = new RPC() {
             public ServiceResponse getResponse() throws Exception {
-                return CustomeApplication.getService().loadUserInfo(id);
+                return MainApp.getService().loadUserInfo(id);
             }
         }.Call();
         if (sr.hasError()) {
@@ -29,7 +29,7 @@ public class UserInfo {
         }
         user = sr.getUser();
 
-        CustomeApplication.db.saveUser(user.getID(), user.getName(), user.getNickName(), user.getAvatar());
+        MainApp.db.saveUser(user.getID(), user.getName(), user.getNickName(), user.getAvatar());
 
         return user;
     }

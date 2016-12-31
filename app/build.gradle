@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "net.dearcode.candy"
@@ -45,9 +45,12 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.alibaba:fastjson:1.2.17'
     compile 'com.android.support:support-v4:23.4.0'
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.google.code.gson:gson:2.4'
+//    compile 'com.google.code.gson:gson:2.4'
     compile(name: 'client', ext: 'aar')
     compile files('libs/freejava-0.0.2.jar')
+
+    compile 'com.meikoz.basic:core:1.0.6'
+
+    testCompile 'junit:junit:4.12'
 }

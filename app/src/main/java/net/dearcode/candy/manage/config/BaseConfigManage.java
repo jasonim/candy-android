@@ -3,7 +3,9 @@ package net.dearcode.candy.manage.config;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import com.meikoz.core.MainApplication;
+
+import net.dearcode.candy.MainApp;
 
 import java.util.Set;
 
@@ -16,7 +18,7 @@ public class BaseConfigManage {
     protected SharedPreferences mSharePreference;
 
     protected BaseConfigManage(String shareName){
-        mSharePreference = CustomeApplication.getInstance().getContext()
+        mSharePreference = MainApp.getContext()
                 .getSharedPreferences(shareName, Context.MODE_PRIVATE);
     }
 

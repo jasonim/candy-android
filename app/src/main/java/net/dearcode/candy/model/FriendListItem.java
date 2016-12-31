@@ -1,7 +1,5 @@
 package net.dearcode.candy.model;
 
-import net.dearcode.candy.modelview.UserBean;
-
 /**
  * Created by lujinfeifly on 16/9/24.
  * 好友列表的单个数据

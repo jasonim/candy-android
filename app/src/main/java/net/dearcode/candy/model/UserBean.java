@@ -1,8 +1,4 @@
-package net.dearcode.candy.modelview;
-
-import android.util.Log;
-
-import net.dearcode.candy.controller.CustomeApplication;
+package net.dearcode.candy.model;
 
 /**
  * Created by lujinfei on 2016/10/14.

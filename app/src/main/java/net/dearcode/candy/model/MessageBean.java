@@ -1,6 +1,6 @@
-package net.dearcode.candy.modelview;
+package net.dearcode.candy.model;
 
-import net.dearcode.candy.controller.CustomeApplication;
+import net.dearcode.candy.MainApp;
 
 /**
  * Created by lujinfei on 2016/10/14.
@@ -77,6 +77,6 @@ public class MessageBean {
 
     public void setUser(UserBean user) {
         this.user = user;
-        this.isMeSend = (user.getUserId() == CustomeApplication.getInstance().getMyself().getID());
+        this.isMeSend = (user.getUserId() == MainApp.getInstance().getMyself().getID());
     }
 }

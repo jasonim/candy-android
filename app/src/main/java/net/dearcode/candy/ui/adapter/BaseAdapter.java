@@ -1,4 +1,4 @@
-package net.dearcode.candy.selfview.adapter;
+package net.dearcode.candy.ui.adapter;
 
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
